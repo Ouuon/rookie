@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="520" viewBox="0 0 900 520">
+  <style>
+    .box { fill:#f7f9fb; stroke:#2b6cb0; stroke-width:2; rx:6; }
+    .text { font-family: "Microsoft YaHei", Arial, sans-serif; font-size:14px; fill:#0b2a4a; }
+    .title { font-weight:700; font-size:16px; }
+    .arrow { stroke:#2b6cb0; stroke-width:2; fill:none; marker-end:url(#arrowhead); }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2b6cb0" />
+    </marker>
+  </defs>
+
+  <!-- Start -->
+  <rect x="360" y="20" width="180" height="40" class="box" />
+  <text x="450" y="45" text-anchor="middle" class="text title">开始 / 启动程序</text>
+
+  <!-- Load -->
+  <rect x="300" y="90" width="300" height="40" class="box" />
+  <text x="450" y="115" text-anchor="middle" class="text">加载 dictionary.txt 到内存 (loadDictionary)</text>
+  <path d="M450 60 L450 90" class="arrow" />
+
+  <!-- Show UI -->
+  <rect x="260" y="160" width="380" height="50" class="box" />
+  <text x="450" y="190" text-anchor="middle" class="text">显示主界面 (侧边导航: 添加/修改/删除/查询/浏览/拼写测试)</text>
+  <path d="M450 130 L450 160" class="arrow" />
+
+  <!-- User select -->
+  <rect x="60" y="260" width="240" height="40" class="box" />
+  <text x="180" y="285" class="text">用户选择模式：添加</text>
+
+  <rect x="330" y="260" width="240" height="40" class="box" />
+  <text x="450" y="285" class="text">修改 / 删除 / 查询 / 浏览</text>
+
+  <rect x="600" y="260" width="240" height="40" class="box" />
+  <text x="720" y="285" class="text">拼写测试 (随机显示中文)</text>
+
+  <path d="M450 210 L180 260" class="arrow" />
+  <path d="M450 210 L450 260" class="arrow" />
+  <path d="M450 210 L720 260" class="arrow" />
+
+  <!-- Add flow -->
+  <rect x="60" y="330" width="240" height="40" class="box" />
+  <text x="180" y="355" class="text">添加单词：校验 -> dict.put -> save</text>
+  <path d="M180 300 L180 330" class="arrow" />
+
+  <!-- Modify/Delete/View/Search flow -->
+  <rect x="330" y="330" width="240" height="40" class="box" />
+  <text x="450" y="355" class="text">修改/删除/查询/浏览：操作 dict 并可 save</text>
+  <path d="M450 300 L450 330" class="arrow" />
+
+  <!-- Quiz flow -->
+  <rect x="600" y="330" width="240" height="40" class="box" />
+  <text x="720" y="355" class="text">拼写测试：随机选词 -> 显示中文 -> 检查答案</text>
+  <path d="M720 300 L720 330" class="arrow" />
+
+  <!-- Save/End -->
+  <rect x="330" y="410" width="240" height="40" class="box" />
+  <text x="450" y="435" text-anchor="middle" class="text">必要时保存到 dictionary.txt (saveDictionary)</text>
+
+  <path d="M180 370 L380 410" class="arrow" />
+  <path d="M450 370 L450 410" class="arrow" />
+  <path d="M720 370 L520 410" class="arrow" />
+
+  <!-- End -->
+  <rect x="360" y="470" width="180" height="40" class="box" />
+  <text x="450" y="495" text-anchor="middle" class="text title">结束 / 退出</text>
+  <path d="M450 450 L450 470" class="arrow" />
+
+</svg>
