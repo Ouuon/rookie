@@ -1,0 +1,44 @@
+name: Generate DOCX from Markdown
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'docs/**'
+      - '.github/workflows/generate-docx.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc librsvg2-bin
+
+      - name: Convert SVG to PNG (if SVG exists)
+        run: |
+          if [ -f "docs/images/flowchart.svg" ]; then
+            rsvg-convert -w 1200 docs/images/flowchart.svg -o docs/images/flowchart.png || true
+          fi
+
+      - name: Generate DOCX from Markdown
+        run: |
+          if [ -f "docs/课程设计说明书-徐逸达.md" ]; then
+            pandoc "docs/课程设计说明书-徐逸达.md" -o "docs/课程设计说明书-徐逸达.docx" --resource-path=.:docs:docs/images
+          else
+            echo "Markdown file not found."
+            exit 1
+          fi
+
+      - name: Commit generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/课程设计说明书-徐逸达.docx docs/images/flowchart.png || true
+          git commit -m "Auto: generate DOCX and PNG from Markdown" || echo "No changes to commit"
+          git push
